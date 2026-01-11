@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="till.co.nz is for sale — premium NZ brand domain for payments, POS, and commerce." />
+  <title>till.co.nz — For Sale</title>
+
+  <style>
+    :root{
+      --bg:#070A12;
+      --text:#ECF0FF;
+      --muted:#B7C0FF;
+      --line:rgba(255,255,255,.10);
+
+      --accent:#7B61FF;
+      --accent2:#20E3B2;
+      --accent3:#FF5DA2;
+      --warn:#FFB020;
+
+      --radius:18px;
+      --shadow: 0 14px 40px rgba(0,0,0,.55);
+      --shadow2: 0 10px 24px rgba(0,0,0,.35);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(123,97,255,.22), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, rgba(32,227,178,.14), transparent 55%),
+        radial-gradient(900px 700px at 55% 85%, rgba(255,93,162,.10), transparent 55%),
+        linear-gradient(180deg, #050710 0%, #070A12 45%, #050710 100%);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+
+    /* Nav */
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter: blur(14px);
+      background: rgba(7,10,18,.45);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:850;
+      letter-spacing:.4px;
+    }
+    .logo{
+      width:36px;height:36px;
+      border-radius:12px;
+      position:relative;
+      background:
+        radial-gradient(10px 10px at 30% 30%, rgba(255,255,255,.55), transparent 60%),
+        linear-gradient(135deg, var(--accent) 0%, var(--accent2) 55%, var(--accent3) 100%);
+      box-shadow: 0 10px 24px rgba(123,97,255,.25), 0 0 0 1px rgba(255,255,255,.12) inset;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:8px;
+      border-radius:10px;
+      background:rgba(7,10,18,.35);
+      box-shadow:0 0 0 1px rgba(255,255,255,.10) inset;
+    }
+    .nav-links{
+      display:flex; align-items:center; gap:14px;
+      font-weight:700;
+      color:rgba(236,240,255,.88);
+    }
+    .nav-links a{
+      padding:9px 10px;
+      border-radius:10px;
+      color:rgba(236,240,255,.86);
+    }
+    .nav-links a:hover{background:rgba(255,255,255,.06)}
+    .nav-actions{display:flex; gap:10px; align-items:center}
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:rgba(236,240,255,.92);
+      padding:10px 12px;
+      border-radius:999px;
+      font-weight:850;
+      box-shadow: 0 10px 20px rgba(0,0,0,.15);
+      cursor:pointer;
+    }
+    .pill:hover{background:rgba(255,255,255,.06)}
+    .cta{
+      border:none;
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent2) 70%);
+      color:#070A12;
+      padding:11px 14px;
+      border-radius:999px;
+      font-weight:950;
+      cursor:pointer;
+      box-shadow: 0 16px 34px rgba(123,97,255,.22);
+    }
+    .cta:hover{filter:saturate(1.1) brightness(1.02)}
+    .hamburger{display:none}
+
+    /* Hero */
+    .hero{padding:40px 0 16px}
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .h-card{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .h-card:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 220px at 30% 10%, rgba(123,97,255,.25), transparent 55%),
+                  radial-gradient(600px 220px at 80% 35%, rgba(32,227,178,.18), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .h-left{padding:28px; position:relative}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(7,10,18,.35);
+      font-weight:900;
+      color:rgba(236,240,255,.92);
+      width:max-content;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background:linear-gradient(135deg, var(--warn), var(--accent3));
+      box-shadow:0 0 0 4px rgba(255,176,32,.12);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(34px, 4.2vw, 58px);
+      line-height:1.02;
+      letter-spacing:-.8px;
+    }
+    .sub{
+      margin:0;
+      font-size: clamp(15px, 1.6vw, 18px);
+      line-height:1.55;
+      color:rgba(236,240,255,.78);
+      max-width:62ch;
+    }
+    .hero-actions{
+      display:flex; flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+      align-items:center;
+    }
+    .ghost{
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(7,10,18,.25);
+      color:rgba(236,240,255,.92);
+      padding:11px 14px;
+      border-radius:999px;
+      font-weight:950;
+      cursor:pointer;
+    }
+    .ghost:hover{background:rgba(255,255,255,.06)}
+    .mini{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+      color:rgba(236,240,255,.72);
+      font-weight:700;
+      flex-wrap:wrap;
+    }
+    .mini span{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+
+    /* Right hero */
+    .h-right{padding:18px; position:relative}
+    .panel{
+      border-radius: 26px;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(14,20,48,.9), rgba(11,16,38,.92));
+      box-shadow: var(--shadow2);
+      padding:14px;
+      height:100%;
+      position:relative;
+      overflow:hidden;
+    }
+    .panel:before{
+      content:"";
+      position:absolute;
+      width:420px; height:420px;
+      right:-240px; top:-220px;
+      background: radial-gradient(circle at 30% 30%, rgba(123,97,255,.35), transparent 60%);
+      opacity:.9;
+    }
+    .chip{
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      font-weight:900;
+      color:rgba(236,240,255,.86);
+      font-size:13px;
+      width:max-content;
+    }
+    .stack{display:grid; gap:10px; position:relative; z-index:2}
+    .big{
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .big .label{color:rgba(236,240,255,.70); font-weight:900; font-size:12px}
+    .big .domain{
+      font-weight:950;
+      font-size:28px;
+      letter-spacing:-.4px;
+      margin-top:4px;
+    }
+    .big .hint{color:rgba(183,192,255,.78); font-weight:700; font-size:12px; margin-top:6px}
+    .why{
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding:12px;
+    }
+    .why h3{margin:0 0 10px; font-size:13px; letter-spacing:.2px; color:rgba(236,240,255,.86)}
+    .row{
+      display:flex; justify-content:space-between; align-items:flex-start;
+      padding:10px 0;
+      border-top:1px solid rgba(255,255,255,.08);
+      gap:14px;
+    }
+    .row:first-of-type{border-top:none}
+    .k{color:rgba(183,192,255,.78); font-weight:800; font-size:12px}
+    .v{font-weight:950}
+
+    section{padding:26px 0}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin-bottom:14px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: clamp(22px, 2.5vw, 30px);
+      letter-spacing:-.4px;
+    }
+    .section-head p{
+      margin:0;
+      color:rgba(183,192,255,.78);
+      font-weight:700;
+      max-width:60ch;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 4;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 12px 26px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(400px 180px at 20% 0%, rgba(123,97,255,.18), transparent 60%);
+      opacity:.8;
+      pointer-events:none;
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:rgba(236,240,255,.78); line-height:1.5}
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .box{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+    }
+    .box h3{margin:0 0 8px}
+    .box p{margin:0; color:rgba(236,240,255,.78); line-height:1.55}
+
+    .form{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    .field{display:grid; gap:6px}
+    label{font-weight:900; color:rgba(236,240,255,.85); font-size:12px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(7,10,18,.25);
+      color:rgba(236,240,255,.92);
+      font-weight:800;
+      outline:none;
+    }
+    textarea{min-height:88px; resize:vertical}
+    input:focus, textarea:focus{
+      border-color: rgba(123,97,255,.55);
+      box-shadow: 0 0 0 4px rgba(123,97,255,.12)
+    }
+    .full{grid-column:1/-1}
+    .note{
+      margin-top:10px;
+      color:rgba(183,192,255,.76);
+      font-weight:700;
+      line-height:1.55;
+      border-top:1px dashed rgba(255,255,255,.14);
+      padding-top:10px;
+      font-size:13px;
+    }
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--line);
+      padding:22px 0 34px;
+      color:rgba(183,192,255,.72);
+    }
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .legal{
+      display:flex; gap:10px; flex-wrap:wrap;
+      font-weight:700;
+    }
+    .legal a{color:rgba(183,192,255,.80)}
+    .legal a:hover{color:rgba(236,240,255,.92)}
+
+    /* Toast */
+    .toast{
+      position:fixed;
+      right:18px; bottom:18px;
+      width:min(420px, calc(100% - 36px));
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(14,20,48,.92);
+      box-shadow: 0 20px 60px rgba(0,0,0,.55);
+      padding:12px 14px;
+      display:none;
+      z-index:60;
+    }
+    .toast.show{display:block}
+    .toast strong{display:block; font-weight:950}
+    .toast span{display:block; margin-top:4px; color:rgba(183,192,255,.82); font-weight:700; line-height:1.4}
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero-inner{grid-template-columns: 1fr}
+      .card{grid-column: span 6}
+      .contact{grid-template-columns: 1fr}
+    }
+    @media (max-width: 640px){
+      .nav-links{display:none}
+      .hamburger{
+        display:inline-flex;
+        width:42px;height:42px;
+        border-radius:14px;
+        border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.04);
+        align-items:center; justify-content:center;
+        cursor:pointer;
+      }
+      .hamburger div{
+        width:18px;height:2px;background:rgba(236,240,255,.9);
+        position:relative;
+      }
+      .hamburger div:before,.hamburger div:after{
+        content:"";
+        position:absolute; left:0; right:0;
+        height:2px; background:rgba(236,240,255,.9);
+      }
+      .hamburger div:before{top:-6px}
+      .hamburger div:after{top:6px}
+      .card{grid-column: span 12}
+      .form{grid-template-columns: 1fr}
+    }
+
+    /* Drawer */
+    .drawer{
+      position:fixed; top:0; right:-320px; height:100vh; width:320px;
+      background: rgba(11,16,38,.98);
+      border-left:1px solid rgba(255,255,255,.12);
+      box-shadow: -16px 0 60px rgba(0,0,0,.55);
+      transition:right .18s ease;
+      z-index:45;
+      padding:14px;
+      display:grid;
+      grid-template-rows: auto 1fr auto;
+      gap:10px;
+    }
+    .drawer.open{right:0}
+    .drawer a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      font-weight:950;
+      color:rgba(236,240,255,.92);
+      margin-top:10px;
+    }
+    .drawer a:hover{background: rgba(255,255,255,.06)}
+    .drawer .close{
+      width:42px;height:42px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      cursor:pointer;
+      color:rgba(236,240,255,.9);
+      font-size:18px;
+      font-weight:900;
+      justify-self:end;
+    }
+    .drawer small{color:rgba(183,192,255,.72); line-height:1.5; font-weight:700}
+
+    /* Reveal */
+    .reveal{opacity:0; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease}
+    .reveal.on{opacity:1; transform: translateY(0)}
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="till.co.nz home">
+        <div class="logo" aria-hidden="true"></div>
+        <span>till.co.nz</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#why">Why</a>
+        <a href="#ideas">Use cases</a>
+        <a href="#enquire">Enquire</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="pill" id="btn-offer" type="button">Make an offer</button>
+        <button class="cta" id="btn-enquire" type="button">Enquire</button>
+        <button class="hamburger" id="btn-menu" type="button" aria-label="Open menu"><div></div></button>
+      </div>
+    </div>
+  </div>
+
+  <aside class="drawer" id="drawer" aria-label="Mobile menu">
+    <button class="close" id="btn-close-drawer" type="button" aria-label="Close menu">×</button>
+    <div>
+      <a href="#why" class="drawer-link">Why</a>
+      <a href="#ideas" class="drawer-link">Use cases</a>
+      <a href="#enquire" class="drawer-link">Enquire</a>
+    </div>
+    <div>
+      <button class="cta" style="width:100%" id="btn-enquire-2" type="button">Enquire</button>
+      <small style="display:block; margin-top:10px;">
+        Short. Brandable. NZ-first. Built for payments, POS, or commerce.
+      </small>
+    </div>
+  </aside>
+
+  <main id="top" class="wrap hero">
+    <div class="hero-inner">
+      <div class="h-card reveal">
+        <div class="h-left">
+          <div class="badge"><span class="dot" aria-hidden="true"></span> Premium NZ domain — <strong>FOR SALE</strong></div>
+
+          <h1>
+            <span style="background:linear-gradient(135deg,var(--accent2),var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent;">
+              till.co.nz
+            </span><br/>
+            Clean, short, and built for money-moving brands.
+          </h1>
+
+          <p class="sub">
+            <strong>till.co.nz is available for acquisition.</strong>
+            “Till” is instantly understood in payments and retail: checkout, POS, receipts, and commerce.
+          </p>
+
+          <div class="hero-actions">
+            <button class="cta" id="btn-enquire-hero" type="button">Enquire</button>
+            <button class="ghost" id="btn-copy" type="button">Copy enquiry text</button>
+            <span style="color:rgba(183,192,255,.78); font-weight:700; font-size:13px;">
+              Enquiries open an email draft (address not shown on-page).
+            </span>
+          </div>
+
+          <div class="mini" aria-label="Highlights">
+            <span>✅ Short & brandable</span>
+            <span>✅ .co.nz trust</span>
+            <span>✅ Payments/POS meaning</span>
+            <span>✅ Easy to remember</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-card reveal">
+        <div class="h-right">
+          <div class="panel">
+            <div class="stack">
+              <div class="chip">Status: <strong>For sale</strong></div>
+
+              <div class="big">
+                <div class="label">Domain</div>
+                <div class="domain">till.co.nz</div>
+                <div class="hint">Serious offers only.</div>
+              </div>
+
+              <div class="why" aria-label="Quick pitch">
+                <h3>Why this domain is valuable</h3>
+
+                <div class="row">
+                  <div>
+                    <div class="v">Instant meaning</div>
+                    <div class="k">Till = checkout / POS / payments</div>
+                  </div>
+                  <div class="v">🧾</div>
+                </div>
+
+                <div class="row">
+                  <div>
+                    <div class="v">Brand-ready</div>
+                    <div class="k">Short, clean, pronounceable</div>
+                  </div>
+                  <div class="v">⚡</div>
+                </div>
+
+                <div class="row">
+                  <div>
+                    <div class="v">NZ trust</div>
+                    <div class="k">Local domain for local customers</div>
+                  </div>
+                  <div class="v">🇳🇿</div>
+                </div>
+
+                <div class="row">
+                  <div>
+                    <div class="v">Versatile</div>
+                    <div class="k">Fintech, retail tech, invoices</div>
+                  </div>
+                  <div class="v">🛒</div>
+                </div>
+
+              </div>
+
+              <button class="pill" id="btn-scroll-enquire" type="button" style="text-align:center">
+                Go to enquiry form
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="why">
+      <div class="section-head reveal">
+        <div>
+          <h2>Why “TILL” sells</h2>
+          <p>It’s a real word people already associate with money, checkout, and retail.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card reveal">
+          <h3>Instantly understood</h3>
+          <p>No explaining needed. “Till” already means “where payments happen.”</p>
+        </div>
+        <div class="card reveal">
+          <h3>Short = premium</h3>
+          <p>Looks good on an app icon, invoice header, and payment terminal sticker.</p>
+        </div>
+        <div class="card reveal">
+          <h3>.co.nz trust</h3>
+          <p>Local domain that reads “NZ-first” by default. Good for conversion.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ideas">
+      <div class="section-head reveal">
+        <div>
+          <h2>Use cases</h2>
+          <p>Payments. POS. Retail tech. Invoices. Checkout. “Till” fits them all.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card reveal" style="grid-column: span 6;">
+          <h3>POS / retail platform</h3>
+          <p>Cloud POS, receipts, inventory, staff roles. The domain matches the product name.</p>
+        </div>
+        <div class="card reveal" style="grid-column: span 6;">
+          <h3>Payments brand</h3>
+          <p>Wallet, checkout, merchant tools. Short domains win attention.</p>
+        </div>
+        <div class="card reveal" style="grid-column: span 6;">
+          <h3>Invoices / small business</h3>
+          <p>Invoice → pay → receipt. “Till” is a natural fit for that loop.</p>
+        </div>
+        <div class="card reveal" style="grid-column: span 6;">
+          <h3>Checkout / API</h3>
+          <p>docs.till.co.nz and api.till.co.nz look clean and credible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="enquire">
+      <div class="section-head reveal">
+        <div>
+          <h2>Enquire</h2>
+          <p>Short form → opens a pre-filled email draft. No public address on the page.</p>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="box reveal">
+          <h3>Make an offer</h3>
+          <p>Keep it simple: name, reply email, offer amount. Optional note.</p>
+
+          <div class="form" aria-label="Offer form">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" placeholder="Your name" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="reply">Your email</label>
+              <input id="reply" placeholder="you@company.com" inputmode="email" autocomplete="email" />
+            </div>
+            <div class="field full">
+              <label for="offer">Offer (NZD)</label>
+              <input id="offer" placeholder="e.g., 4500" inputmode="numeric" />
+            </div>
+            <div class="field full">
+              <label for="note">Note (optional)</label>
+              <textarea id="note" placeholder="Optional. e.g., timeframe / broker / escrow preference."></textarea>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:12px; flex-wrap:wrap;">
+            <button class="pill" id="btn-clear" type="button">Clear</button>
+            <button class="cta" id="btn-send" type="button">Open enquiry email</button>
+          </div>
+
+          <div class="note">
+            This page doesn’t submit data anywhere. It only opens your email client with a pre-filled draft.
+          </div>
+        </div>
+
+        <div class="box reveal">
+          <h3>Transfer approach</h3>
+          <p>
+            Typical flow: agree price → buyer pays (bank transfer or escrow) → domain is transferred via registrar.
+          </p>
+          <p style="margin-top:10px; color:rgba(183,192,255,.78); font-weight:700;">
+            Brokers and escrow services are fine — mention it in your note.
+          </p>
+
+          <div class="note">
+            Listing is for the domain name only.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot">
+        <div style="display:flex; gap:10px; align-items:flex-start">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <strong style="color:rgba(236,240,255,.92)">till.co.nz</strong>
+            <div style="margin-top:4px; line-height:1.6">
+              <small>Premium .co.nz domain — <strong>for sale</strong></small>
+              <small style="margin-top:6px">© <span id="year"></span></small>
+            </div>
+          </div>
+        </div>
+
+        <div class="legal">
+          <a href="#why">Why</a>
+          <a href="#ideas">Use cases</a>
+          <a href="#enquire">Enquire</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <strong id="toast-title">Copied</strong>
+    <span id="toast-msg">Text copied.</span>
+  </div>
+
+  <script>
+    const $ = (sel, el=document) => el.querySelector(sel);
+    const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+
+    $("#year").textContent = new Date().getFullYear();
+
+    // Reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("on"); });
+    }, {threshold: 0.08});
+    $$(".reveal").forEach(el => io.observe(el));
+
+    // Drawer
+    const drawer = $("#drawer");
+    const openDrawer = () => drawer.classList.add("open");
+    const closeDrawer = () => drawer.classList.remove("open");
+    $("#btn-menu").addEventListener("click", openDrawer);
+    $("#btn-close-drawer").addEventListener("click", closeDrawer);
+    $$(".drawer-link").forEach(a => a.addEventListener("click", () => setTimeout(closeDrawer, 80)));
+
+    // Toast
+    const toast = $("#toast");
+    let toastTimer = null;
+    function showToast(title, msg){
+      $("#toast-title").textContent = title;
+      $("#toast-msg").textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2400);
+    }
+
+    // Scroll helpers
+    function goEnquire(){
+      $("#enquire").scrollIntoView({behavior:"smooth", block:"start"});
+    }
+    $("#btn-enquire").addEventListener("click", goEnquire);
+    $("#btn-enquire-2").addEventListener("click", () => { closeDrawer(); goEnquire(); });
+    $("#btn-enquire-hero").addEventListener("click", goEnquire);
+    $("#btn-offer").addEventListener("click", goEnquire);
+    $("#btn-scroll-enquire").addEventListener("click", goEnquire);
+
+    // Copy enquiry template (no address displayed on page)
+    const TEMPLATE_TEXT =
+`Subject: Offer for till.co.nz
+
+Hi Jamie,
+
+I'm interested in acquiring till.co.nz.
+
+Name:
+Email:
+Offer (NZD):
+Note (optional):
+
+Thanks,`;
+    async function copyTemplate(){
+      try{
+        await navigator.clipboard.writeText(TEMPLATE_TEXT);
+        showToast("Copied", "Enquiry template copied.");
+      }catch{
+        const ta = document.createElement("textarea");
+        ta.value = TEMPLATE_TEXT;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        showToast("Copied", "Enquiry template copied.");
+      }
+    }
+    $("#btn-copy").addEventListener("click", copyTemplate);
+
+    // Destination inbox (not shown on page text)
+    const DESTINATION_EMAIL = "jamiefrancisdavidson@gmail.com";
+
+    function buildMailto(){
+      const name = ($("#name").value || "").trim();
+      const reply = ($("#reply").value || "").trim();
+      const offer = ($("#offer").value || "").trim();
+      const note = ($("#note").value || "").trim();
+
+      if(!reply || !reply.includes("@")){
+        showToast("Check email", "Please enter a valid email address.");
+        $("#reply").focus();
+        return null;
+      }
+      if(!offer){
+        showToast("Add offer", "Please enter an offer amount (NZD).");
+        $("#offer").focus();
+        return null;
+      }
+
+      const subject = "Offer: till.co.nz";
+      const body = [
+        "Hi Jamie,",
+        "",
+        "I'm interested in acquiring till.co.nz.",
+        "",
+        `Name: ${name || "—"}`,
+        `Email: ${reply}`,
+        `Offer (NZD): ${offer}`,
+        note ? "" : "",
+        note ? "Note:" : "",
+        note ? note : "",
+        "",
+        "Thanks,"
+      ].filter(Boolean).join("\n");
+
+      return `mailto:${encodeURIComponent(DESTINATION_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+
+    $("#btn-send").addEventListener("click", () => {
+      const link = buildMailto();
+      if(link) window.location.href = link;
+    });
+
+    $("#btn-clear").addEventListener("click", () => {
+      $("#name").value = "";
+      $("#reply").value = "";
+      $("#offer").value = "";
+      $("#note").value = "";
+      showToast("Cleared", "Form cleared.");
+    });
+
+    // Escape closes drawer
+    window.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeDrawer();
+    });
+
+    // Smooth scroll anchors
+    $$('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if(!id || id === "#") return;
+        const target = document.querySelector(id);
+        if(!target) return;
+        e.preventDefault();
+        target.scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    });
+  </script>
+</body>
+</html>
