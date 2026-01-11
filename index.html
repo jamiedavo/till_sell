@@ -532,6 +532,7 @@
 
           <div class="hero-actions">
             <button class="cta" id="btn-enquire-hero" type="button">Enquire</button>
+            <button class="ghost" id="btn-copy" type="button" title="Copy enquiry email template">Copy email template</button>
             <span style="color:rgba(183,192,255,.78); font-weight:700; font-size:13px;">
               Enquiries open an email draft (address not shown on-page).
             </span>
@@ -676,11 +677,11 @@
             </div>
             <div class="field">
               <label for="reply">Your email</label>
-              <input id="reply" placeholder="you@company.com" inputmode="email" autocomplete="email" />
+              <input id="reply" type="email" placeholder="you@company.com" inputmode="email" autocomplete="email" />
             </div>
             <div class="field full">
               <label for="offer">Offer (NZD)</label>
-              <input id="offer" placeholder="e.g., 4500" inputmode="numeric" />
+              <input id="offer" type="number" inputmode="decimal" min="0" step="1" placeholder="e.g., 4500" />
             </div>
             <div class="field full">
               <label for="note">Note (optional)</label>
@@ -774,13 +775,14 @@
 
     // Scroll helpers
     function goEnquire(){
-      $("#enquire").scrollIntoView({behavior:"smooth", block:"start"});
+      const el = $("#enquire");
+      if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
     }
-    $("#btn-enquire").addEventListener("click", goEnquire);
-    $("#btn-enquire-2").addEventListener("click", () => { closeDrawer(); goEnquire(); });
-    $("#btn-enquire-hero").addEventListener("click", goEnquire);
-    $("#btn-offer").addEventListener("click", goEnquire);
-    $("#btn-scroll-enquire").addEventListener("click", goEnquire);
+    $("#btn-enquire")?.addEventListener("click", goEnquire);
+    $("#btn-enquire-2")?.addEventListener("click", () => { closeDrawer(); goEnquire(); });
+    $("#btn-enquire-hero")?.addEventListener("click", goEnquire);
+    $("#btn-offer")?.addEventListener("click", goEnquire);
+    $("#btn-scroll-enquire")?.addEventListener("click", goEnquire);
 
     // Copy enquiry template (no address displayed on page)
     const TEMPLATE_TEXT =
@@ -801,8 +803,11 @@ Thanks,`;
         await navigator.clipboard.writeText(TEMPLATE_TEXT);
         showToast("Copied", "Enquiry template copied.");
       }catch{
+        // fallback for older browsers
         const ta = document.createElement("textarea");
         ta.value = TEMPLATE_TEXT;
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
         document.body.appendChild(ta);
         ta.select();
         document.execCommand("copy");
@@ -810,53 +815,71 @@ Thanks,`;
         showToast("Copied", "Enquiry template copied.");
       }
     }
-    $("#btn-copy").addEventListener("click", copyTemplate);
+    // attach copy handler only if the button exists (prevents errors)
+    const btnCopy = $("#btn-copy");
+    if (btnCopy) btnCopy.addEventListener("click", copyTemplate);
 
-    // Destination inbox (not shown on page text)
-    const DESTINATION_EMAIL = "jamiefrancisdavidson@gmail.com";
+    // Destination inbox (mild obfuscation in source)
+    const DEST_LOCAL = "jamiefrancisdavidson";
+    const DEST_HOST = "gmail.com";
+    const DESTINATION_EMAIL = `${DEST_LOCAL}@${DEST_HOST}`;
 
     function buildMailto(){
-      const name = ($("#name").value || "").trim();
-      const reply = ($("#reply").value || "").trim();
-      const offer = ($("#offer").value || "").trim();
-      const note = ($("#note").value || "").trim();
+      const name = ($("#name")?.value || "").trim();
+      const replyEl = $("#reply");
+      const reply = (replyEl?.value || "").trim();
+      const offerRaw = ($("#offer")?.value || "").trim();
+      const note = ($("#note")?.value || "").trim();
 
-      if(!reply || !reply.includes("@")){
+      // Validate email using the browser's native validation if possible
+      if (!reply || (replyEl && !replyEl.checkValidity())) {
         showToast("Check email", "Please enter a valid email address.");
-        $("#reply").focus();
+        replyEl?.focus();
         return null;
       }
-      if(!offer){
-        showToast("Add offer", "Please enter an offer amount (NZD).");
-        $("#offer").focus();
+
+      // Validate numeric offer
+      // Allow commas/whitespace, parse float
+      const offerNum = Number(String(offerRaw).replace(/[,\s]+/g, ""));
+      if (!isFinite(offerNum) || offerNum <= 0) {
+        showToast("Add offer", "Please enter a valid offer amount (NZD).");
+        $("#offer")?.focus();
         return null;
       }
 
       const subject = "Offer: till.co.nz";
-      const body = [
+
+      const lines = [
         "Hi Jamie,",
         "",
         "I'm interested in acquiring till.co.nz.",
         "",
         `Name: ${name || "—"}`,
         `Email: ${reply}`,
-        `Offer (NZD): ${offer}`,
-        note ? "" : "",
-        note ? "Note:" : "",
-        note ? note : "",
-        "",
-        "Thanks,"
-      ].filter(Boolean).join("\n");
+        `Offer (NZD): ${offerNum}`
+      ];
 
-      return `mailto:${encodeURIComponent(DESTINATION_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      if (note) {
+        lines.push("", "Note:", note);
+      }
+
+      lines.push("", "Thanks,");
+
+      const body = lines.join("\n");
+
+      // build mailto - email address left unencoded, subject & body encoded
+      return `mailto:${DESTINATION_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
 
-    $("#btn-send").addEventListener("click", () => {
+    $("#btn-send")?.addEventListener("click", () => {
       const link = buildMailto();
-      if(link) window.location.href = link;
+      if (link) {
+        // use location.href to open mail client
+        window.location.href = link;
+      }
     });
 
-    $("#btn-clear").addEventListener("click", () => {
+    $("#btn-clear")?.addEventListener("click", () => {
       $("#name").value = "";
       $("#reply").value = "";
       $("#offer").value = "";
